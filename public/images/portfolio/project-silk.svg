@@ -1,0 +1,20 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" fill="#E7DDD4"/>
+  <rect x="48" y="48" width="1104" height="804" rx="28" fill="url(#bg)"/>
+  <circle cx="288" cy="286" r="176" fill="#D87A4B"/>
+  <circle cx="468" cy="510" r="132" fill="#F0D5BF"/>
+  <circle cx="760" cy="312" r="216" fill="#2E3D38"/>
+  <circle cx="890" cy="616" r="170" fill="#A25C39"/>
+  <rect x="132" y="610" width="420" height="156" rx="24" fill="#F8F0E7" fill-opacity="0.82"/>
+  <text x="166" y="672" fill="#241B18" font-family="Arial, sans-serif" font-size="28" letter-spacing="8">LAUNCH IDENTITY</text>
+  <text x="164" y="744" fill="#241B18" font-family="Arial, sans-serif" font-size="88" font-weight="700">After Silk</text>
+  <rect x="836" y="120" width="224" height="70" rx="18" fill="#231A17"/>
+  <text x="870" y="165" fill="#FBF3EA" font-family="Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="4">PROJECT 03</text>
+  <text x="720" y="804" fill="#FBF3EA" font-family="Arial, sans-serif" font-size="22" letter-spacing="4">DUMMY CAMPAIGN ART / WARM TONES</text>
+  <defs>
+    <linearGradient id="bg" x1="100" y1="86" x2="1098" y2="826" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBF5ED"/>
+      <stop offset="1" stop-color="#D4C5B8"/>
+    </linearGradient>
+  </defs>
+</svg>
