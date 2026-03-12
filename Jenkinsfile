@@ -40,7 +40,7 @@ node {
 
     // Deploy to production stage
     stage('Deploy') {
-        docker.image('appleboy/drone-rsync').inside('--entrypoint="" -u root') {
+        docker.image('instrumentisto/rsync-ssh:alpine').inside('--entrypoint="" -u root') {
             sshagent(credentials: ['ssh-prod']) {
                 sh 'mkdir -p ~/.ssh'
                 sh 'ssh-keyscan -H $PROD_HOST > ~/.ssh/known_hosts'
