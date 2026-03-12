@@ -41,10 +41,15 @@ node {
     // Deploy to production stage
     stage('Deploy') {
         docker.image('instrumentisto/rsync-ssh:alpine').inside('--entrypoint="" -u root') {
-            sshagent(credentials: ['ssh-prod']) {
-                sh 'mkdir -p ~/.ssh'
-                sh 'ssh-keyscan -H $PROD_HOST > ~/.ssh/known_hosts'
-                sh 'rsync -rv --delete ./ ubuntu@$PROD_HOST:/home/ubuntu/prod.kilanadevops.xyz/ --exclude=.env --exclude=storage --exclude=.git'
+            withCredentials([sshUserPrivateKey(credentialsId: 'ssh-prod', keyFileVariable: 'SSH_KEY', usernameVariable: 'SSH_USER')]) {
+                sh '''
+                    mkdir -p ~/.ssh
+                    chmod 700 ~/.ssh
+                    ssh-keyscan -H "$PROD_HOST" > ~/.ssh/known_hosts
+                    chmod 600 "$SSH_KEY" ~/.ssh/known_hosts
+                    ssh -i "$SSH_KEY" -o StrictHostKeyChecking=yes "$SSH_USER@$PROD_HOST" "mkdir -p /home/$SSH_USER/prod.kilanadevops.xyz"
+                    rsync -rv --delete -e "ssh -i $SSH_KEY -o StrictHostKeyChecking=yes" ./ "$SSH_USER@$PROD_HOST:/home/$SSH_USER/prod.kilanadevops.xyz/" --exclude=.env --exclude=storage --exclude=.git
+                '''
             }
         }
     }
